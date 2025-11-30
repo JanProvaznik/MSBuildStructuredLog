@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RollForward>major</RollForward>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DebugType>embedded</DebugType>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>binlog-mcp-server</ToolCommandName>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>MSBuild.BinlogMcpServer</PackageId>
+    <Authors>Jan Provaznik, Kirill Osenkov</Authors>
+    <Company>Microsoft</Company>
+    <Description>An MCP (Model Context Protocol) server for analyzing MSBuild binary log files (.binlog). Enables AI assistants to help with build performance optimization, troubleshooting, and analysis. Read more at https://msbuildlog.com.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/KirillOsenkov/MSBuildStructuredLog</PackageProjectUrl>
+    <IconFilePath>$(MSBuildThisFileDirectory)..\StructuredLogViewer\icons\msbuild-structured-log-viewer.png</IconFilePath>
+    <PackageIcon>msbuild-structured-log-viewer.png</PackageIcon>
+    <RepositoryUrl>https://github.com/KirillOsenkov/MSBuildStructuredLog</RepositoryUrl>
+    <PackageTags>MSBuild Log Logger Structure Structured Binlog MCP AI LLM Analysis</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ModelContextProtocol" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StructuredLogger\StructuredLogger.csproj" />
+    <ProjectReference Include="..\StructuredLogViewer.Core\StructuredLogViewer.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(IconFilePath)" Pack="true" PackagePath="" />
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+</Project>
