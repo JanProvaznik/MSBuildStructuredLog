@@ -169,9 +169,27 @@ public static class BinlogTools
     }
 
     [McpServerTool(Name = "search")]
-    [Description("Search the build log using the structured query syntax. Supports patterns like '$task Csc', '$error', 'under(ProjectName)', 'duration>1s'.")]
+    [Description(@"Search the build log using the structured query syntax. 
+
+QUERY SYNTAX:
+- Simple text: 'MyTarget' - searches for text in all nodes
+- Node type prefix: '$target MyTarget', '$task Csc', '$message text', '$error', '$warning', '$property Name', '$item Compile'
+- Under constraint: 'under(ProjectName)' - only show results under a specific parent
+- Project filter: 'project(*.Tests)' - filter by project name pattern
+- Time filters: 'start<10s' (started within first 10s), 'end>5s', 'duration>1s' (took longer than 1s)
+- Negation: 'not $warning' - exclude matches
+- Combination: '$task Csc and duration>5s' - combine conditions with 'and'/'or'
+- Quotes for exact match: '""exact phrase""'
+
+EXAMPLES:
+- '$error' - find all errors
+- '$task Csc' - find all C# compiler tasks  
+- '$target Build and duration>1s' - find Build targets taking over 1 second
+- 'under(MyProject) $warning' - find warnings in MyProject
+- '$property Configuration' - find Configuration property assignments
+- 'not $message and not $warning' - find nodes that aren't messages or warnings")]
     public static string Search(
-        [Description("The search query using structured log syntax")] string query,
+        [Description("The search query. Examples: '$error', '$task Csc', 'under(MyProject) $target', 'duration>1s'")] string query,
         [Description("Maximum number of results (default: 100)")] int maxResults = 100)
     {
         if (!Service.IsBuildLoaded)
