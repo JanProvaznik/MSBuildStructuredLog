@@ -165,18 +165,7 @@ Get the values of an item type.
 **Returns:**
 - Item values with their metadata
 
-### 13. `analyze_critical_path`
-Analyze the critical path of the build (longest sequential chain).
-
-**Parameters:**
-- None
-
-**Returns:**
-- List of targets/tasks on the critical path
-- Total critical path duration
-- Suggestions for parallelization opportunities
-
-### 14. `get_evaluation_profile`
+### 13. `get_evaluation_profile`
 Get evaluation profiling information.
 
 **Parameters:**
@@ -189,7 +178,7 @@ Get evaluation profiling information.
   - Import processing
   - Glob expansions
 
-### 15. `check_suspicious_patterns`
+### 14. `check_suspicious_patterns`
 Run automated checks for common build issues.
 
 **Parameters:**
@@ -203,7 +192,7 @@ Run automated checks for common build issues.
   - Missing incremental build support
   - Unnecessary rebuilds
 
-### 16. `get_compiler_invocations`
+### 15. `get_compiler_invocations`
 Get C#/VB/F# compiler invocations with their command lines.
 
 **Parameters:**
@@ -215,7 +204,7 @@ Get C#/VB/F# compiler invocations with their command lines.
   - Command line arguments
   - Duration
 
-### 17. `get_file_copies`
+### 16. `get_file_copies`
 Analyze file copy operations in the build.
 
 **Parameters:**
@@ -225,18 +214,15 @@ Analyze file copy operations in the build.
 **Returns:**
 - List of file copy operations with source, destination, and timing
 
-### 18. `compare_builds`
+## Planned Future Tools
+
+The following tools are planned for future implementation:
+
+### `analyze_critical_path` (Planned)
+Analyze the critical path of the build (longest sequential chain).
+
+### `compare_builds` (Planned)
 Compare two binary logs to identify differences.
-
-**Parameters:**
-- `other_path` (string, required): Path to the second .binlog file
-
-**Returns:**
-- Comparison of:
-  - Duration differences
-  - Targets that ran in one but not the other
-  - Property value differences
-  - New errors/warnings
 
 ## Query Syntax
 

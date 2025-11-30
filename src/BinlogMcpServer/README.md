@@ -44,7 +44,6 @@ binlog-mcp-server
 
 - **get_slowest_targets** - Identify the slowest targets in the build
 - **get_slowest_tasks** - Identify the slowest tasks in the build
-- **analyze_critical_path** - Analyze the critical path of the build
 - **get_evaluation_profile** - Get evaluation profiling information
 
 ### Issue Detection
@@ -66,10 +65,6 @@ binlog-mcp-server
 - **get_target_dependencies** - Get target dependency information
 - **get_compiler_invocations** - Get compiler invocations
 - **get_file_copies** - Analyze file copy operations
-
-### Comparison
-
-- **compare_builds** - Compare two binary logs
 
 ## Example Conversations
 
